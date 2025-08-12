@@ -1,17 +1,18 @@
 # Agenda
 - Performance overview
 - Revenue breakdown
-- Guidance and risks
+- Outlook & risks
+- Contact: [23f2001049@ds.study.iitm.ac.in](https://mail.google.com/mail/?view=cm&fs=1&to=23f2001049@ds.study.iitm.ac.in)
 
 Note:
-Briefly outline the flow and timebox each section.
+Brief agenda to set expectations for the meeting.
 
 ---
 
-## Revenue Mix (Markdown)
+## Revenue Mix (Q2)
 - Retail Banking: 45%
-- Institutional: 40%
-- Wealth: 15%
+- Institutional Bank: 40%
+- Wealth Management: 15%
 
 Note:
 Call out growth drivers and seasonal effects.
@@ -19,9 +20,9 @@ Call out growth drivers and seasonal effects.
 --
 
 ### KPI Snapshot
-- NIM trending stable
+- NIM stable
 - Cost-to-income improving
-- CET1 above management target
+- CET1 above target
 
 Note:
-Mention capital buffer and regulatory ratios.
+Talk about capital adequacy and regulatory compliance.
