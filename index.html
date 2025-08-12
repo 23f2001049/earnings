@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
 
-  <!-- Code syntax highlight theme (highlight.js) -->
+  <!-- Syntax highlight CSS -->
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/github-dark.min.css" />
 
   <style>
@@ -22,78 +22,67 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- Title slide (HTML) -->
+      <!-- Title Slide -->
       <section>
         <h1>Quarterly Earnings Report</h1>
         <p class="small">Technical Consultant: <span class="brand">23f2001049@ds.study.iitm.ac.in</span></p>
         <p class="muted small">Modern interactive presentation with Reveal.js</p>
         <aside class="notes">
-          Welcome stakeholders. Introduce agenda: performance highlights, revenue breakdown, guidance, and Q&A.
+          Welcome stakeholders. Outline: performance highlights, revenue breakdown, guidance, Q&A.
         </aside>
       </section>
 
-      <!-- Markdown slide: load slides.md as Markdown -->
-      <section data-markdown="slides.md" data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-separator-notes="^Note:"></section>
+      <!-- Markdown Slides -->
+      <section data-markdown="slides.md"
+               data-separator="^\n---\n$"
+               data-separator-vertical="^\n--\n$"
+               data-separator-notes="^Note:"></section>
 
-      <!-- Code sample with syntax highlighting and fragments -->
+      <!-- Code Sample with Fragments -->
       <section>
-        <h2>Data Pipeline Snippet</h2>
+        <h2>Data Pipeline Overview</h2>
         <pre><code class="language-javascript" data-trim>
 /**
- * Ingest daily P&L, normalize, and publish to BI layer.
+ * Process daily Profit & Loss
  */
 async function processDailyPnL(records) {
-  // 1) Validate schema
-  validate(records); // fragment 1
-  // 2) Normalize currencies
-  const normalized = await fxNormalize(records, 'USD'); // fragment 2
-  // 3) Persist
-  await saveToWarehouse(normalized); // fragment 3
+  validate(records); // validate input
+  const normalized = await fxNormalize(records, 'USD'); // normalize currency
+  await saveToWarehouse(normalized); // save to database
   return { rows: normalized.length, status: 'ok' };
 }
         </code></pre>
         <p>
-          <span class="fragment">Step 1 validates mandatory fields.</span>
-          <span class="fragment">Step 2 converts to USD with end-of-day rates.</span>
-          <span class="fragment">Step 3 writes to analytics schema.</span>
+          <span class="fragment">Step 1: Validate input data</span>
+          <span class="fragment">Step 2: Normalize currency to USD</span>
+          <span class="fragment">Step 3: Save to warehouse</span>
         </p>
         <aside class="notes">
-          Call out data lineage, controls, and audit logs. Emphasize automated checks reduce close time.
+          Emphasize audit controls and automation benefits here.
         </aside>
       </section>
 
-      <!-- Math (financial formulas) + fragments -->
+      <!-- Financial Formulas -->
       <section>
-        <h2>Financial Metrics</h2>
-        <p class="fragment">Earnings Per Share (EPS): \\( \\mathrm{EPS} = \\frac{\\text{Net\\ Income} - \\text{Preferred\\ Dividends}}{\\text{Weighted\\ Avg\\ Shares}} \\)</p>
-        <p class="fragment">Return on Equity (ROE): \\( \\mathrm{ROE} = \\frac{\\text{Net\\ Income}}{\\text{Average\\ Shareholders'\\ Equity}} \\)</p>
-        <p class="fragment">Discounted Cash Flow: \\( \\mathrm{PV} = \\sum_{t=1}^{T} \\frac{CF_t}{(1+r)^t} \\)</p>
+        <h2>Key Financial Metrics</h2>
+        <p class="fragment">EPS: \( \mathrm{EPS} = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Avg Shares}} \)</p>
+        <p class="fragment">ROE: \( \mathrm{ROE} = \frac{\text{Net Income}}{\text{Average Shareholders' Equity}} \)</p>
+        <p class="fragment">DCF: \( \mathrm{PV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} \)</p>
         <aside class="notes">
-          Use EPS for per-share profitability, ROE for capital efficiency, and DCF for intrinsic valuation context.
+          Useful for valuation and performance benchmarking.
         </aside>
       </section>
 
-      <!-- Fragments animation example -->
+      <!-- Highlights -->
       <section>
-        <h2>Q/Q Highlights</h2>
+        <h2>Quarterly Highlights</h2>
         <ul>
           <li class="fragment">Revenue growth in Institutional Banking</li>
           <li class="fragment">Operating margin expansion</li>
-          <li class="fragment">Lower credit provisions</li>
-          <li class="fragment">Improved expense discipline</li>
+          <li class="fragment">Reduced credit provisions</li>
         </ul>
         <aside class="notes">
-          Reveal each point with fragments for pacing; add numbers on the next slide if needed.
-        </aside>
-      </section>
-
-      <!-- Speaker notes demo -->
-      <section>
-        <h2>Guidance & Risks</h2>
-        <p class="fragment">FY outlook maintained; investment in digital channels</p>
-        <p class="fragment">Monitoring rate sensitivity and liquidity metrics</p>
-        <aside class="notes">
-          Address sensitivity to macro rates, regulatory changes, and capital buffers. Invite Q&A at the end.
+          Mention supporting stats in follow-up slide.
         </aside>
       </section>
 
@@ -114,15 +103,8 @@ async function processDailyPnL(records) {
       hash: true,
       slideNumber: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
-      // Math plugin config (KaTeX)
-      math: {
-        // Using KaTeX CDN automatically with RevealMath.KaTeX
-        // Delimiters are standard: \( \) inline, \[ \] display
-      },
-      // Code highlighting config
-      highlight: {
-        // Auto-detect languages; you can specify classes like language-python, language-js
-      }
+      math: { },
+      highlight: { }
     });
   </script>
 </body>
