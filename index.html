@@ -22,23 +22,28 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- Title Slide -->
+      <!-- Title Slide with Clickable Email -->
       <section>
         <h1>Quarterly Earnings Report</h1>
-        <p class="small">Technical Consultant: <span class="brand">23f2001049@ds.study.iitm.ac.in</span></p>
+        <p class="small">
+          Technical Consultant:
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=23f2001049@ds.study.iitm.ac.in" target="_blank" class="brand">
+            23f2001049@ds.study.iitm.ac.in
+          </a>
+        </p>
         <p class="muted small">Modern interactive presentation with Reveal.js</p>
         <aside class="notes">
           Welcome stakeholders. Outline: performance highlights, revenue breakdown, guidance, Q&A.
         </aside>
       </section>
 
-      <!-- Markdown Slides -->
+      <!-- Markdown Slide File Load -->
       <section data-markdown="slides.md"
                data-separator="^\n---\n$"
                data-separator-vertical="^\n--\n$"
                data-separator-notes="^Note:"></section>
 
-      <!-- Code Sample with Fragments -->
+      <!-- Code Sample with Syntax Highlighting & Fragments -->
       <section>
         <h2>Data Pipeline Overview</h2>
         <pre><code class="language-javascript" data-trim>
@@ -62,7 +67,7 @@ async function processDailyPnL(records) {
         </aside>
       </section>
 
-      <!-- Financial Formulas -->
+      <!-- Financial Equations -->
       <section>
         <h2>Key Financial Metrics</h2>
         <p class="fragment">EPS: \( \mathrm{EPS} = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Avg Shares}} \)</p>
@@ -73,7 +78,7 @@ async function processDailyPnL(records) {
         </aside>
       </section>
 
-      <!-- Highlights -->
+      <!-- Highlights with Fragments -->
       <section>
         <h2>Quarterly Highlights</h2>
         <ul>
@@ -103,8 +108,8 @@ async function processDailyPnL(records) {
       hash: true,
       slideNumber: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
-      math: { },
-      highlight: { }
+      math: {},
+      highlight: {}
     });
   </script>
 </body>
