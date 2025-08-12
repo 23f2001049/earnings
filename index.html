@@ -1,40 +1,129 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8" />
+  <title>Quarterly Earnings – Reveal.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>reveal.js</title>
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+  <!-- Code syntax highlight theme (highlight.js) -->
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/github-dark.min.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+  <style>
+    .small { font-size: 0.8em; }
+    .muted { color: #bbb; }
+    .brand { color: #66d9ef; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+      <!-- Title slide (HTML) -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <p class="small">Technical Consultant: <span class="brand">23f2001049@ds.study.iitm.ac.in</span></p>
+        <p class="muted small">Modern interactive presentation with Reveal.js</p>
+        <aside class="notes">
+          Welcome stakeholders. Introduce agenda: performance highlights, revenue breakdown, guidance, and Q&A.
+        </aside>
+      </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+      <!-- Markdown slide: load slides.md as Markdown -->
+      <section data-markdown="slides.md" data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-separator-notes="^Note:"></section>
+
+      <!-- Code sample with syntax highlighting and fragments -->
+      <section>
+        <h2>Data Pipeline Snippet</h2>
+        <pre><code class="language-javascript" data-trim>
+/**
+ * Ingest daily P&L, normalize, and publish to BI layer.
+ */
+async function processDailyPnL(records) {
+  // 1) Validate schema
+  validate(records); // fragment 1
+  // 2) Normalize currencies
+  const normalized = await fxNormalize(records, 'USD'); // fragment 2
+  // 3) Persist
+  await saveToWarehouse(normalized); // fragment 3
+  return { rows: normalized.length, status: 'ok' };
+}
+        </code></pre>
+        <p>
+          <span class="fragment">Step 1 validates mandatory fields.</span>
+          <span class="fragment">Step 2 converts to USD with end-of-day rates.</span>
+          <span class="fragment">Step 3 writes to analytics schema.</span>
+        </p>
+        <aside class="notes">
+          Call out data lineage, controls, and audit logs. Emphasize automated checks reduce close time.
+        </aside>
+      </section>
+
+      <!-- Math (financial formulas) + fragments -->
+      <section>
+        <h2>Financial Metrics</h2>
+        <p class="fragment">Earnings Per Share (EPS): \\( \\mathrm{EPS} = \\frac{\\text{Net\\ Income} - \\text{Preferred\\ Dividends}}{\\text{Weighted\\ Avg\\ Shares}} \\)</p>
+        <p class="fragment">Return on Equity (ROE): \\( \\mathrm{ROE} = \\frac{\\text{Net\\ Income}}{\\text{Average\\ Shareholders'\\ Equity}} \\)</p>
+        <p class="fragment">Discounted Cash Flow: \\( \\mathrm{PV} = \\sum_{t=1}^{T} \\frac{CF_t}{(1+r)^t} \\)</p>
+        <aside class="notes">
+          Use EPS for per-share profitability, ROE for capital efficiency, and DCF for intrinsic valuation context.
+        </aside>
+      </section>
+
+      <!-- Fragments animation example -->
+      <section>
+        <h2>Q/Q Highlights</h2>
+        <ul>
+          <li class="fragment">Revenue growth in Institutional Banking</li>
+          <li class="fragment">Operating margin expansion</li>
+          <li class="fragment">Lower credit provisions</li>
+          <li class="fragment">Improved expense discipline</li>
+        </ul>
+        <aside class="notes">
+          Reveal each point with fragments for pacing; add numbers on the next slide if needed.
+        </aside>
+      </section>
+
+      <!-- Speaker notes demo -->
+      <section>
+        <h2>Guidance & Risks</h2>
+        <p class="fragment">FY outlook maintained; investment in digital channels</p>
+        <p class="fragment">Monitoring rate sensitivity and liquidity metrics</p>
+        <aside class="notes">
+          Address sensitivity to macro rates, regulatory changes, and capital buffers. Invite Q&A at the end.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+
+  <!-- Plugins -->
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
+      // Math plugin config (KaTeX)
+      math: {
+        // Using KaTeX CDN automatically with RevealMath.KaTeX
+        // Delimiters are standard: \( \) inline, \[ \] display
+      },
+      // Code highlighting config
+      highlight: {
+        // Auto-detect languages; you can specify classes like language-python, language-js
+      }
+    });
+  </script>
+</body>
 </html>
