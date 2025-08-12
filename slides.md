@@ -1,28 +1,116 @@
-# Agenda
-- Performance overview
-- Revenue breakdown
-- Outlook & risks
-- Contact: [23f2001049@ds.study.iitm.ac.in](https://mail.google.com/mail/?view=cm&fs=1&to=23f2001049@ds.study.iitm.ac.in)
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Quarterly Earnings – Reveal.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-Note:
-Brief agenda to set expectations for the meeting.
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
 
----
+  <!-- Syntax highlight CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/github-dark.min.css" />
 
-## Revenue Mix (Q2)
-- Retail Banking: 45%
-- Institutional Bank: 40%
-- Wealth Management: 15%
+  <style>
+    .small { font-size: 0.8em; }
+    .muted { color: #bbb; }
+    .brand { color: #66d9ef; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-Note:
-Call out growth drivers and seasonal effects.
+      <!-- Title Slide with Clickable Email -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <p class="small">
+          Technical Consultant:
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=23f2001049@ds.study.iitm.ac.in" target="_blank" class="brand">
+            23f2001049@ds.study.iitm.ac.in
+          </a>
+        </p>
+        <p class="muted small">Modern interactive presentation with Reveal.js</p>
+        <aside class="notes">
+          Welcome stakeholders. Outline: performance highlights, revenue breakdown, guidance, Q&A.
+        </aside>
+      </section>
 
---
+      <!-- Markdown Slide File Load -->
+      <section data-markdown="slides.md"
+               data-separator="^\n---\n$"
+               data-separator-vertical="^\n--\n$"
+               data-separator-notes="^Note:"></section>
 
-### KPI Snapshot
-- NIM stable
-- Cost-to-income improving
-- CET1 above target
+      <!-- Code Sample with Syntax Highlighting & Fragments -->
+      <section>
+        <h2>Data Pipeline Overview</h2>
+        <pre><code class="language-javascript" data-trim>
+/**
+ * Process daily Profit & Loss
+ */
+async function processDailyPnL(records) {
+  validate(records); // validate input
+  const normalized = await fxNormalize(records, 'USD'); // normalize currency
+  await saveToWarehouse(normalized); // save to database
+  return { rows: normalized.length, status: 'ok' };
+}
+        </code></pre>
+        <p>
+          <span class="fragment">Step 1: Validate input data</span>
+          <span class="fragment">Step 2: Normalize currency to USD</span>
+          <span class="fragment">Step 3: Save to warehouse</span>
+        </p>
+        <aside class="notes">
+          Emphasize audit controls and automation benefits here.
+        </aside>
+      </section>
 
-Note:
-Talk about capital adequacy and regulatory compliance.
+      <!-- Financial Equations -->
+      <section>
+        <h2>Key Financial Metrics</h2>
+        <p class="fragment">EPS: \( \mathrm{EPS} = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Avg Shares}} \)</p>
+        <p class="fragment">ROE: \( \mathrm{ROE} = \frac{\text{Net Income}}{\text{Average Shareholders' Equity}} \)</p>
+        <p class="fragment">DCF: \( \mathrm{PV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} \)</p>
+        <aside class="notes">
+          Useful for valuation and performance benchmarking.
+        </aside>
+      </section>
+
+      <!-- Highlights with Fragments -->
+      <section>
+        <h2>Quarterly Highlights</h2>
+        <ul>
+          <li class="fragment">Revenue growth in Institutional Banking</li>
+          <li class="fragment">Operating margin expansion</li>
+          <li class="fragment">Reduced credit provisions</li>
+        </ul>
+        <aside class="notes">
+          Mention supporting stats in follow-up slide.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+
+  <!-- Plugins -->
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
+      math: {},
+      highlight: {}
+    });
+  </script>
+</body>
+</html>
